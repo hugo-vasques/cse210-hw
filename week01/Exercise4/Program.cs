@@ -41,7 +41,7 @@ class Program
                 max = num;
             }
         }
-
+        
         Console.WriteLine($"The max is: {max}");
     }
 }
