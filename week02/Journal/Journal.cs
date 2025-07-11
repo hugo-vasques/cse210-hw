@@ -37,15 +37,19 @@ public class Journal
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split("|");
-            string date = parts[0];
-            string prompt = parts[1];
-            string content = parts[2];
+            string[] parts = line.Split("|", 3);
 
-            Entry entry = new Entry(content, prompt);
-            entry._date = date;
+            if (parts.Length == 3)
+            {
+                string date = parts[0];
+                string prompt = parts[1];
+                string content = parts[2];
 
-            _entries.Add(entry);
+                Entry entry = new Entry(content, prompt);
+                entry._date = date;
+
+                _entries.Add(entry);
+            }
         }
     }
 }
