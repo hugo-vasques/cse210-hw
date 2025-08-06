@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-
 public class BreathingActivity : Activity
 {
     public BreathingActivity()
@@ -12,24 +9,29 @@ public class BreathingActivity : Activity
 
     public void Run()
     {
+        Console.Write("Enter the duration in seconds: ");
+        int duration = int.Parse(Console.ReadLine());
+        SetDuration(duration);
+
+        Console.Clear();
         DisplayStartingMessage();
 
-        int duration = GetDuration();
-        int elapsed = 0;
-
-        while (elapsed < duration)
+        DateTime endTime = DateTime.Now.AddSeconds(duration);
+        while (DateTime.Now < endTime)
         {
-            Console.Write("\nBreathe in... ");
-            ShowCountDown(4);
-            elapsed += 4;
+            Console.Write("Breathe in... ");
+            ShowCountDown(3);
+            Console.WriteLine();
 
-            if (elapsed >= duration) break;
-
-            Console.Write("Breathe out... ");
-            ShowCountDown(6);
-            elapsed += 6;
+            Console.Write("Now breathe out... ");
+            ShowCountDown(3);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         DisplayEndingMessage();
+        Console.WriteLine($"\nYou have completed another {GetDuration()} seconds of the Breathing Activity!");
+        Console.WriteLine("\nPress Enter to go back to the menu...");
+        Console.ReadLine();
     }
 }
