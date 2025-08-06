@@ -3,10 +3,10 @@ using System.Threading;
 
 public class BreathingActivity : Activity
 {
-    public BreathingActivity() 
-        : base("Breathing Activity", 
-               "This activity will help you relax by walking you through breathing in and out slowly.\nClear your mind and focus on your breathing.", 
-               "You did a great job with your breathing. Keep it up!") 
+    public BreathingActivity()
+        : base("Breathing Activity",
+               "This activity will help you relax by walking you through breathing in and out slowly.\nClear your mind and focus on your breathing.",
+               "You did a great job with your breathing. Keep it up!")
     {
     }
 
