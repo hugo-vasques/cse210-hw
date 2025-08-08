@@ -2,7 +2,7 @@ public class Activity
 {
     private string _name;
     private int _duration;
-
+    
     private string _description;
     private string _startingMessage;
     private string _endingMessage;
