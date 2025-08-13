@@ -1,29 +1,27 @@
 using System;
-using System.Collections.Generic;
 
-abstract class Activity
+namespace FitnessApp
 {
-    private DateTime date;
-    private int minutes;
-
-    public Activity(DateTime date, int minutes)
+    abstract class Activity
     {
-        this.date = date;
-        this.minutes = minutes;
-    }
+        public DateTime Date { get; }
+        public int Minutes { get; }
 
-    public DateTime Date => date;
-    public int Minutes => minutes;
+        public Activity(DateTime date, int minutes)
+        {
+            Date = date;
+            Minutes = minutes;
+        }
 
-    public abstract double GetDistance();
-    public abstract double GetSpeed();
-    public abstract double GetPace();
-
-    public virtual string GetSummary()
-    {
-        return $"{Date:dd MMM yyyy} {this.GetType().Name} ({Minutes} min): " +
-               $"Distance {GetDistance():0.0} km, " +
-               $"Speed {GetSpeed():0.0} kph, " +
-               $"Pace: {GetPace():0.00} min/km";
+        public abstract double GetSpeed();
+        public abstract double GetDistance();
+        public abstract double GetPace();
+        public virtual string GetSummary()
+        {
+            return $"{Date:dd MMM yyyy} {GetType().Name} ({Minutes} min) - " +
+                   $"Distance: {GetDistance():F1} km, " +
+                   $"Speed: {GetSpeed():F1} kph, " +
+                   $"Pace: {GetPace():F1} min per km";
+        }
     }
 }

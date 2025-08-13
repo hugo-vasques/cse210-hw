@@ -1,16 +1,19 @@
-class Cycling : Activity
+namespace FitnessApp
 {
-    private double speed;
-
-    public Cycling(DateTime date, int minutes, double speed)
-        : base(date, minutes)
+    class Cycling : Activity
     {
-        this.speed = speed;
+        private double speed;
+
+        public Cycling(DateTime date, int minutes, double speed)
+            : base(date, minutes)
+        {
+            this.speed = speed;
+        }
+
+        public override double GetSpeed() => speed;
+
+        public override double GetDistance() => (speed * Minutes) / 60;
+
+        public override double GetPace() => Minutes / GetDistance();
     }
-
-    public override double GetSpeed() => speed;
-
-    public override double GetDistance() => (speed * Minutes) / 60;
-
-    public override double GetPace() => Minutes / GetDistance();
 }
